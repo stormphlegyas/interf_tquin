@@ -1,7 +1,19 @@
-﻿using UnityEngine;
+// ************************************************************************** //
+//                                                                            //
+//                                                        :::      ::::::::   //
+//   loadder.cs                                         :+:      :+:    :+:   //
+//                                                    +:+ +:+         +:+     //
+//   By: mmounini <mmounini@student.42.fr>          +#+  +:+       +#+        //
+//                                                +#+#+#+#+#+   +#+           //
+//   Created: 2016/06/04 23:38:53 by mmounini          #+#    #+#             //
+//   Updated: 2016/06/04 23:38:55 by mmounini         ###   ########.fr       //
+//                                                                            //
+// ************************************************************************** //
+
+using UnityEngine;
 using System.Collections;
 using System.Text;
-using System.IO; 
+using System.IO;
 using UnityEngine.UI;
 
 public class loadder : MonoBehaviour {
@@ -42,7 +54,7 @@ public class loadder : MonoBehaviour {
 				clone.transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = false;
 				clone.GetComponent<Text> ().text = "";
 			}
-			block [i + 1] = clone; 
+			block [i + 1] = clone;
 			j++;
 		}
 		GetComponent<Gameplay>().enabled = true;
