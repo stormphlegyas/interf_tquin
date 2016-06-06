@@ -6,7 +6,7 @@
 //   By: mmounini <mmounini@student.42.fr>          +#+  +:+       +#+        //
 //                                                +#+#+#+#+#+   +#+           //
 //   Created: 2016/06/04 23:38:46 by mmounini          #+#    #+#             //
-//   Updated: 2016/06/04 23:38:47 by mmounini         ###   ########.fr       //
+//   Updated: 2016/06/06 02:28:23 by mmounini         ###   ########.fr       //
 //                                                                            //
 // ************************************************************************** //
 
@@ -60,7 +60,7 @@ public class Gameplay : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-			
+
 /*		Debug.Log (GetComponent<loadder>().str[id]);
 		if (GetComponent<loadder>().str[id] != "]" && GetComponent<loadder>().str[id] != "END")
 			id++;*/
