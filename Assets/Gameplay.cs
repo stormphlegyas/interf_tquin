@@ -16,27 +16,53 @@ using UnityEngine.UI;
 
 public class Gameplay : MonoBehaviour {
 
-	bool	play;
 	int		id;
+	GameObject[] obj;
+	GameObject	bl_zero;
+	string last;
 
-	void	init(){
-		play = true;
-		id = 7;
+
+	void	zero_to(int a){
+		Debug.Log (a);
+		for (int h = 0; h < obj.Length; h++) {
+			Debug.Log (GetComponent<loadder> ().str [id] + " and id = " + id);
+			if (obj [h].GetComponent<block> ().num == last [GetComponent<loadder> ().str [id].IndexOf ('0')] - 48) {
+				Vector3 tmp = bl_zero.transform.position;
+				bl_zero.GetComponent<block> ().move (obj [h].transform.position);
+				obj [h].GetComponent<block> ().move (tmp);
+			}
+		}
 	}
-	IEnumerator 
+
+	IEnumerator animate(){
+		last = GetComponent<loadder> ().str[7];
+		yield return new WaitForEndOfFrame ();
+		GetComponent<loadder>().canvas.GetComponent<GridLayoutGroup> ().enabled = false;
+		for (id = 8; GetComponent<loadder> ().str [id] != "]" && GetComponent<loadder> ().str [id] != "END"; id++) {
+			zero_to (last [GetComponent<loadder> ().str [id].IndexOf ('0')] - 48);
+			last = GetComponent<loadder> ().str [id];
+			yield return new WaitForSeconds (1);
+		}
+
+	}
 	// Use this for initialization
 	void Start () {
-		play = false;
+		StartCoroutine (animate());
+		obj = GetComponent<loadder> ().block;
+		for (int i = 0; i < obj.Length; i++) {
+			if (obj [i].GetComponent<block> ().num == 0) {
+				bl_zero = obj [i];
+				break;
+			}
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
-		if (play == false)
-			init ();
-		else
-			GetComponent<loadder>().canvas.GetComponent<GridLayoutGroup> ().enabled = false;
-		Debug.Log (GetComponent<loadder>().str[id]);
+
+			
+/*		Debug.Log (GetComponent<loadder>().str[id]);
 		if (GetComponent<loadder>().str[id] != "]" && GetComponent<loadder>().str[id] != "END")
-			id++;
+			id++;*/
 	}
 }

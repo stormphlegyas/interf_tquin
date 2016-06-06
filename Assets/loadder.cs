@@ -40,20 +40,21 @@ public class loadder : MonoBehaviour {
 		block [0] = Case;
 		str [id] = str [id].Split ('[') [1];
 		int j = 1;
-		Case.GetComponent<Text> ().text = (str [id] [0] - 48).ToString();
-		if ((str [id] [j] - 48) == 0) {
-			Case.transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = false;
-			Case.GetComponent<Text> ().text = "";
-		}
+		Case.GetComponent<block> ().init_num (str [id] [0] - 48);
+//		Case.GetComponent<Text> ().text = (str [id] [0] - 48).ToString();
+//		if ((str [id] [j] - 48) == 0) {
+//			Case.transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = false;
+//			Case.GetComponent<Text> ().text = "";
+//		}
 		for (int i = 0; i < (int.Parse(str[1]) * int.Parse(str[1])) - 1; i++) {
 			GameObject clone = Instantiate (Case);
 			clone.transform.parent = canvas.transform;
-			Debug.Log (str [id]);
-			clone.GetComponent<Text> ().text = (str [id] [j] - 48).ToString();
-			if ((str [id] [j] - 48) == 0) {
-				clone.transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = false;
-				clone.GetComponent<Text> ().text = "";
-			}
+			clone.GetComponent<block> ().init_num (str [id] [j] - 48);
+//			clone.GetComponent<Text> ().text = (str [id] [j] - 48).ToString();
+//			if ((str [id] [j] - 48) == 0) {
+//				clone.transform.GetChild (0).GetComponent<MeshRenderer> ().enabled = false;
+//				clone.GetComponent<Text> ().text = "";
+//			}
 			block [i + 1] = clone;
 			j++;
 		}
